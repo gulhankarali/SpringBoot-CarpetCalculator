@@ -1,8 +1,6 @@
 package com.carpetcalculator;
 
 import com.carpetcalculator.interfaces.CarpetPrice;
-import com.carpetcalculator.interfaces.UnitPrice;
-import com.carpetcalculator.services.State.Texas;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,10 +12,13 @@ public class CarpetCalculatorApplication {
 
 		ApplicationContext container = SpringApplication.run(CarpetCalculatorApplication.class, args);
 
-		CarpetPrice carpetPrice = container.getBean("createCarpet", CarpetPrice.class);
+//		CarpetPrice carpetPrice = container.getBean("createCarpet", CarpetPrice.class);
+//
+//		carpetPrice.printPrice();
 
-		carpetPrice.printPrice();
+		CarpetPrice carpetPrice1 = container.getBean("createCarpetII", CarpetPrice.class);
 
+		carpetPrice1.printPrice();
 
 	}
 

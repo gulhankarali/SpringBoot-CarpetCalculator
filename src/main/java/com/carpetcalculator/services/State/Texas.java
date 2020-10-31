@@ -7,6 +7,7 @@ import com.carpetcalculator.interfaces.FloorArea;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+
 @Qualifier("texas")
 @Component
 public class Texas implements UnitPrice {
@@ -15,6 +16,7 @@ public class Texas implements UnitPrice {
     @Override
     public double calculatePrice(Enums.City city) throws Exception {
         double unitPrice = 0;
+
         switch (city){
             case Austin: unitPrice =  2.0; break;
             case Dallas: unitPrice = 3.0; break;

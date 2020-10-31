@@ -13,5 +13,6 @@ public class Enums {
     public enum State{
         TEXAS, VIRGINIA
     }
+
 }
 

@@ -12,6 +12,7 @@ public class Virginia implements UnitPrice {
     @Override
     public double calculatePrice(Enums.City city) throws Exception {
         double unitPrice = 0;
+
         switch (city){
             case McLean: unitPrice = 6.0; break;
             case Fairfax: unitPrice = 7.0; break;
