@@ -1,9 +1,9 @@
 package com.carpetcalculator.interfaces;
 
-import com.carpetcalculator.enums.Enums;
+import com.carpetcalculator.enums.City;
 
 public interface UnitPrice {
 
-    double calculatePrice(Enums.City city) throws Exception;
+    double calculatePrice(City city) throws Exception;
 
 }

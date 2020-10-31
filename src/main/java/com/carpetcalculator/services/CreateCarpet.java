@@ -1,6 +1,5 @@
 package com.carpetcalculator.services;
 
-import com.carpetcalculator.enums.Enums;
 import com.carpetcalculator.interfaces.CarpetPrice;
 import com.carpetcalculator.interfaces.UnitPrice;
 import com.carpetcalculator.interfaces.FloorArea;
@@ -8,18 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import com.carpetcalculator.enums.City;
+import com.carpetcalculator.enums.State;
+import com.carpetcalculator.enums.RoomType;
 
 @Component
-public class CreateCarpet implements CarpetPrice {
+public class CreateCarpet {
 
     @Value("${state}")
-    private Enums.State state;
+    private State state;
 
     @Value("${city}")
-    private Enums.City city;
+    private City city;
 
     @Value("${room}")
-    private Enums.RoomType room;
+    private RoomType room;
 
     @Autowired
     @Qualifier("texas")
@@ -41,24 +43,23 @@ public class CreateCarpet implements CarpetPrice {
     @Qualifier("livingRoom")
     private FloorArea floorAreaLivingRoom;
 
-    @Override
     public void printPrice() throws Exception {
 
         double pricePerCity = 0;
         double floorAreaSize = 0;
 
-        if (state.equals(Enums.State.TEXAS))
+        if (state.equals(State.TEXAS))
             pricePerCity = unitPriceTexas.calculatePrice(city);
-        else if (state.equals(Enums.State.VIRGINIA))
+        else if (state.equals(State.VIRGINIA))
                 pricePerCity = unitPriceVirginia.calculatePrice(city);
         else
             throw new Exception("Undefined State!");
 
-        if (room.equals(Enums.RoomType.Bedroom))
+        if (room.equals(RoomType.Bedroom))
             floorAreaSize = floorAreaBedroom.calculateFloor();
-        else if (room.equals(Enums.RoomType.Kitchen))
+        else if (room.equals(RoomType.Kitchen))
             floorAreaSize = floorAreaKitchen.calculateFloor();
-        else if (room.equals(Enums.RoomType.LivingRoom))
+        else if (room.equals(RoomType.LivingRoom))
            floorAreaSize = floorAreaLivingRoom.calculateFloor();
         else
             throw new Exception("Undefined Room Type!");

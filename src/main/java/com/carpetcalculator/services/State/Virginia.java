@@ -1,6 +1,6 @@
 package com.carpetcalculator.services.State;
 
-import com.carpetcalculator.enums.Enums;
+import com.carpetcalculator.enums.City;
 import com.carpetcalculator.interfaces.UnitPrice;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class Virginia implements UnitPrice {
 
     @Override
-    public double calculatePrice(Enums.City city) throws Exception {
+    public double calculatePrice(City city) throws Exception {
         double unitPrice = 0;
 
         switch (city){
